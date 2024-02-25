@@ -3,11 +3,10 @@ import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
 // import ProfileMenu from '../elements/profile-menu';
-// import { selectIsLoggedIn } from '../../redux/reducers/authSlice';
+import { selectIsLoggedIn, selectUserType } from '../../redux/reducers/authSlice';
 import { useSelector } from 'react-redux';
 import { Button } from '@material-tailwind/react';
 // import { APP_LOGO } from '../../constants/common';
-// import { selectUserType } from '../../redux/reducers/authSlice';
 
 const navigation = [
     { name: 'Home', href: '/', current: true },
@@ -60,7 +59,7 @@ const StudentHeader: React.FC = () => {
                                                             : 'text-blue-gray-600 hover:text-blue-gray-800 font-semibold hover:bg-gray-300',
                                                         'rounded-md px-3 py-2 text-sm font-medium',
                                                     )}
-                                                    aria-current={item.current ? 'page' : 'undefined'}
+                                                    // aria-current={item.current ? 'page' : 'undefined'}
                                                 >
                                                     {item.name}
                                                 </Link>
