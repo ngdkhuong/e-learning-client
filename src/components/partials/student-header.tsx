@@ -1,7 +1,7 @@
 import React from 'react';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import ProfileMenu from '../elements/profile-menu';
 import { selectIsLoggedIn, selectUserType } from '../../redux/reducers/authSlice';
 import { useSelector } from 'react-redux';
@@ -22,7 +22,7 @@ function classNames(...classes: any) {
 }
 
 const StudentHeader: React.FC = () => {
-    const location = useLocation();
+    // const location = useLocation();
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const user = useSelector(selectUserType);
 
