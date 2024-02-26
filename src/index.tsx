@@ -6,11 +6,11 @@ import CONFIG_KEYS from './config';
 import { RouterProvider } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import AppRouter from './routes';
-// import { Provider } from 'react-redux';
-// import { store, persister } from './redux/store';
+import { Provider } from 'react-redux';
+import { store, persistor } from './redux/store';
 import { ThemeProvider } from '@material-tailwind/react';
 import { ToastContainer } from 'react-toastify';
-// import { PersistGate } from 'redux-persist/intergation/react';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -19,10 +19,14 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
     <React.StrictMode>
         <GoogleOAuthProvider clientId={CONFIG_KEYS.GOOGLE_AUTH_CLIENT_ID}>
-            <ThemeProvider>
-                <RouterProvider router={AppRouter}></RouterProvider>
-                <ToastContainer />
-            </ThemeProvider>
+            <Provider store={store}>
+                <PersistGate loading={null} persistor={persistor}>
+                    <ThemeProvider>
+                        <RouterProvider router={AppRouter}></RouterProvider>
+                        <ToastContainer />
+                    </ThemeProvider>
+                </PersistGate>
+            </Provider>
         </GoogleOAuthProvider>
     </React.StrictMode>,
 );
