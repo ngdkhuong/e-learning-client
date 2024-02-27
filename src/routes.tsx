@@ -5,7 +5,9 @@ import ErrorElement from './components/common/error-element';
 
 const LazyListCourse = lazy(() => import('./components/pages/course-pages/list-course'));
 
-const LazyStudentHomePage = lazy(() => import('./components/pages/students/student-home-page.tsx'));
+const LazyStudentHomePage = lazy(() => import('./components/pages/students/student-home-page'));
+
+const LazyStudentRegister = lazy(() => import('./components/pages/students/student-registration-page'));
 
 const AppRouter = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ const AppRouter = createBrowserRouter([
                 element: (
                     <Suspense fallback={<div>Loading...</div>}>
                         <LazyListCourse />
+                    </Suspense>
+                ),
+            },
+            {
+                path: '/register',
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <LazyStudentRegister />
                     </Suspense>
                 ),
             },
