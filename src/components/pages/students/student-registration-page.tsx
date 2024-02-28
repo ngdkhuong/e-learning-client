@@ -121,7 +121,7 @@ const StudentRegistrationPage: React.FC = () => {
                                     <Field
                                         id="mobile"
                                         name="mobile"
-                                        type="number"
+                                        type="mobile"
                                         autoComplete="mobile"
                                         maxLength={10}
                                         required

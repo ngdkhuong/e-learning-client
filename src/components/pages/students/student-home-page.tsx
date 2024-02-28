@@ -11,6 +11,7 @@ import TrendingCard from '../home/trending-card';
 import TrendingCardShimmer from '../../shimmer/shimmer-trending-course';
 import { getTrendingCourses, getRecommendedCourses } from '../../../api/endpoints/course/course';
 import { Link } from 'react-router-dom';
+import RecommendedCard from '../home/recommended-card';
 
 const StudentHomePage: React.FC = () => {
     const [trendingCourses, setTrendingCourses] = useState<ApiResponseTrending[] | null>(null);
@@ -60,6 +61,11 @@ const StudentHomePage: React.FC = () => {
 
     const handleShowMoreTrending = () => {
         setShowMoreTrending(true);
+        setCardsToShow((prevCardsToShow) => prevCardsToShow + 3);
+    };
+
+    const handleShowMoreRecommended = () => {
+        setShowMoreRecommended(true);
         setCardsToShow((prevCardsToShow) => prevCardsToShow + 3);
     };
 
@@ -144,6 +150,43 @@ const StudentHomePage: React.FC = () => {
                     </div>
                 )}
             </div>
+
+            {recommendedCourses && (
+                <div className="lg:p-10 md:p-7 pt-5 sm:p-8 w-full">
+                    <div className="ml-10 flex items-center justify-start w-9/12">
+                        <Typography
+                            variant="h1"
+                            className="text-2xl p-2 ml-2 lg:text-4xl font-semibold"
+                            placeholder={undefined}
+                        >
+                            Recommended Courses
+                        </Typography>
+                    </div>
+                    <div className="flex items-center justify-between pt-2 px-10 flex-wrap">
+                        {recommendedCourses?.slice(0, cardsToShow).map((course, index) => {
+                            return (
+                                <React.Fragment key={index}>
+                                    <Link to={`/courses/${course._id}`} className="">
+                                        <RecommendedCard courseInfo={course} />
+                                    </Link>
+                                    {!showMoreRecommended &&
+                                        index === cardsToShow - 1 &&
+                                        recommendedCourses.length > cardsToShow && (
+                                            <div className="flex justify-end w-full">
+                                                <button
+                                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                                    onClick={handleShowMoreRecommended}
+                                                >
+                                                    View More
+                                                </button>
+                                            </div>
+                                        )}
+                                </React.Fragment>
+                            );
+                        })}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
