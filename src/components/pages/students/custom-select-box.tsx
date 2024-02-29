@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Field, ErrorMessage } from 'formik';
 import Select from 'react-select';
 import { toast } from 'react-toastify';
+import { getAllCategories } from '../../../api/endpoints/category';
 
 interface Category {
     name: string;

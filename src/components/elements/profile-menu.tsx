@@ -96,7 +96,7 @@ export default function ProfileMenu() {
                         />
                     </Button>
                 </MenuHandler>
-                <MenuList className="p-1">
+                <MenuList className="p-1" placeholder={undefined}>
                     {profileMenuItems.map(({ label, icon }, key) => {
                         const isLastItem = key === profileMenuItems.length - 1;
                         return (
