@@ -1,4 +1,4 @@
-export interface StudentRegisterData {
+export interface InstructorRegisterDataInterface {
     [key: string]: any;
     firstName: string;
     lastName: string;
@@ -13,7 +13,7 @@ export interface StudentRegisterData {
     images?: File[];
 }
 
-export interface InstructorLoginData {
+export interface InstructorLoginInfo {
     email: string;
     password: string;
 }

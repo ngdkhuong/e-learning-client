@@ -1,4 +1,4 @@
-export interface AdminLoginData {
+export interface AdminLoginInfo {
     email: string;
     password: string;
 }
