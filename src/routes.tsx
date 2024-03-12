@@ -135,14 +135,6 @@ const AppRouter = createBrowserRouter([
                     </Suspense>
                 ),
             },
-            {
-                path: '/register',
-                element: (
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <LazyStudentRegister />
-                    </Suspense>
-                ),
-            },
         ],
     },
     {
@@ -157,7 +149,59 @@ const AppRouter = createBrowserRouter([
                 path: '',
                 element: <DashHome />,
             },
+            {
+                path: 'my-courses',
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <LazyStudentCourses />
+                    </Suspense>
+                ),
+            },
+            {
+                path: 'my-profile',
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <LazyStudentProfile />
+                    </Suspense>
+                ),
+            },
         ],
+    },
+    {
+        path: 'courses/:courseId/payment',
+        element: <StripeContainer />,
+    },
+    {
+        path: '/login',
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <LazyStudentLogin />
+            </Suspense>
+        ),
+    },
+    {
+        path: '/register',
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <LazyStudentRegister />
+            </Suspense>
+        ),
+    },
+    {
+        path: '/instructors/login',
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <LazyInstructorLogin />
+            </Suspense>
+        ),
+    },
+    {
+        path: '/instructors/register',
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <LazyInstructorRegister />
+            </Suspense>
+        ),
     },
 ]);
 
