@@ -4,7 +4,7 @@ import { Student } from './App';
 import ErrorElement from './components/common/error-element';
 import DashHome from './components/pages/student-dash/dash-home';
 
-// const LazyListCourse = lazy(() => import('./components/pages/course-pages/list-course'));
+const LazyListCourse = lazy(() => import('./components/pages/course-pages/list-course'));
 
 // const LazyInstructorsListing = lazy(() => import('./components/pages/instructors/list-all-instructors'));
 
