@@ -49,9 +49,9 @@ const AddLessonForm: React.FC = () => {
 
             const formData = new FormData();
 
-            lessonVideo && formData.append('media', lessonVideo, 'lessonVideo');
+            lessonVideo && formData.append('videos', lessonVideo, 'videos');
 
-            materialFile && formData.append('media', materialFile, 'materialFile');
+            materialFile && formData.append('videos', materialFile, 'materialFile');
 
             Object.keys(lesson).forEach((key) => {
                 if (key === 'questions') {

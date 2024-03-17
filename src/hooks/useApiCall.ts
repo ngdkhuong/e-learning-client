@@ -22,6 +22,7 @@ const useApiData = <T>(apiCall: (...args: any[]) => Promise<T>, ...args: any[]):
     };
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         let timerId: any;
         const fetchData = async (): Promise<void> => {
             setIsLoading(true);
@@ -38,7 +39,7 @@ const useApiData = <T>(apiCall: (...args: any[]) => Promise<T>, ...args: any[]):
         };
 
         fetchData();
-    }, [refreshFlag, ...args]);
+    }, [apiCall, args, refreshFlag]);
 
     return {
         data,
