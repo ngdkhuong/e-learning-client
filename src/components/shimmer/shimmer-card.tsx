@@ -1,6 +1,3 @@
-import React from 'react';
-import { Card, CardHeader, CardBody, Typography } from '@material-tailwind/react';
-
 const ShimmerCard = () => {
     return (
         <div className="w-[18.5rem] p-5 overflow-hidden hover:shadow-md hover:border animate-pulse">

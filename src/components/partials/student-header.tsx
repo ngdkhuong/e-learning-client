@@ -2,7 +2,7 @@ import React from 'react';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
-// import ProfileMenu from '../elements/profile-menu';
+import ProfileMenu from '../elements/profile-menu';
 import { selectIsLoggedIn, selectUserType } from '../../redux/reducers/authSlice';
 import { useSelector } from 'react-redux';
 import { Button } from '@material-tailwind/react';
@@ -95,7 +95,7 @@ const StudentHeader: React.FC = () => {
                                                         Register
                                                     </button>
                                                 </Link>
-                                                <Link to="/instructor/login">
+                                                <Link to="/instructors/login">
                                                     <button className="bg-purple-800 hover:bg-purple-900 text-xs lg:text-sm text-white font-bold py-2 px-2 rounded focus:outline-none focus:shadow-outline">
                                                         Instructor Login
                                                     </button>
