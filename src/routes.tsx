@@ -157,11 +157,11 @@ const AppRouter = createBrowserRouter([
         ),
         children: [
             {
-                path: '/',
+                path: '',
                 element: <DashHome />,
             },
             {
-                path: '/my-courses',
+                path: 'my-courses',
                 element: (
                     <Suspense fallback={<div>Loading...</div>}>
                         <LazyStudentCourses />
@@ -169,7 +169,7 @@ const AppRouter = createBrowserRouter([
                 ),
             },
             {
-                path: '/my-profile',
+                path: 'my-profile',
                 element: (
                     <Suspense fallback={<div>Loading...</div>}>
                         <LazyStudentProfile />
@@ -215,7 +215,7 @@ const AppRouter = createBrowserRouter([
         ),
     },
     {
-        path: 'admin',
+        path: '/admin',
         element: <Admin />,
         errorElement: <ErrorElement />,
         children: [
@@ -294,12 +294,12 @@ const AppRouter = createBrowserRouter([
         ],
     },
     {
-        path: 'instructors',
+        path: '/instructors',
         element: <Instructor />,
         errorElement: <ErrorElement />,
         children: [
             {
-                path: '/instructors',
+                path: 'instructors',
                 element: <InstructorDashboard />,
             },
             {
